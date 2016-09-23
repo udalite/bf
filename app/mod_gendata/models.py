@@ -27,11 +27,12 @@ class Plant(Base):
     properties    = db.Column(JSONB, nullable=True)
 
     # New instance instantiation procedure
-    def __init__(self, mainclass_id, species_id, name_rus, name_lat):
+    def __init__(self, mainclass_id, species_id, name_rus, name_lat, properties):
         self.mainclass_id  = mainclass_id
         self.species_id    = species_id
         self.name_rus = name_rus
         self.name_lat = name_lat
+        self.properties = properties
 
     def __repr__(self):
         return '<Plant %s>' % (self.name_rus)
@@ -77,8 +78,8 @@ class Genus(Base):
     name_lat = db.Column(db.String(128), nullable=False)
 
     # New instance instantiation procedure
-    def __init__(self, genus_id, name_rus, name_lat):
-        self.genus_id  = genus_id
+    def __init__(self, family_id, name_rus, name_lat):
+        self.family_id  = family_id
         self.name_rus = name_rus
         self.name_lat = name_lat
 
